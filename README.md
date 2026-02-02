@@ -1,1 +1,1 @@
-# threat-hunt-tor-unathorized-usage
+# threat-hunt-tor-unauthorized-usage
