@@ -1,0 +1,14 @@
+// Detect execution of TOR Browser or related processes
+DeviceProcessEvents
+| where Timestamp >= ago(30d)
+| where FileName in~ ("tor.exe", "firefox.exe")
+| where ProcessCommandLine has_any ("Tor Browser", "tor.exe")
+| project
+    Timestamp,
+    DeviceName,
+    AccountName,
+    FileName,
+    ProcessCommandLine,
+    InitiatingProcessFileName,
+    InitiatingProcessCommandLine
+| order by Timestamp desc
