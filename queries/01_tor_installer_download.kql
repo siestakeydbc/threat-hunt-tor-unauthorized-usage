@@ -1,0 +1,17 @@
+// Detect TOR Browser installer download or presence on endpoint
+DeviceFileEvents
+| where Timestamp >= ago(30d)
+| where FileName has_any (
+    "tor-browser",
+    "torbrowser",
+    "tor-browser-windows"
+)
+| project
+    Timestamp,
+    DeviceName,
+    InitiatingProcessAccountName,
+    FileName,
+    FolderPath,
+    ActionType,
+    InitiatingProcessFileName
+| order by Timestamp desc

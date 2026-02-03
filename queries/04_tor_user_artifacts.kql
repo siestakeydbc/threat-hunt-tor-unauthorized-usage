@@ -1,0 +1,16 @@
+// Q4: Detect suspicious user file creation/deletion related to TOR activity
+// Purpose: Identify evidence of user intent following TOR usage
+// Data Source: Microsoft Defender for Endpoint (MDE)
+
+DeviceFileEvents
+| where Timestamp >= ago(30d)
+| where FileName has_any ("shopping-list", "tor", "dark", "market")
+| project
+    Timestamp,
+    DeviceName,
+    ActionType,
+    FileName,
+    FolderPath,
+    InitiatingProcessFileName,
+    InitiatingProcessAccountName
+| order by Timestamp desc
