@@ -13,3 +13,30 @@ The project is designed to mirror **real-world SOC operations**, emphasizing:
 - Clear articulation of risk and findings  
 
 This investigation was conducted as part of hands-on security operations training and is suitable for **SOC Analyst**, **Threat Hunter**, and **MDR** role portfolios.
+
+## Threat Hypothesis & Scope
+
+### Threat Hypothesis
+
+Unauthorized use of anonymization tools such as the TOR Browser within an enterprise Windows environment may indicate:
+- Policy violations or insider risk
+- Attempts to evade network monitoring controls
+- Early-stage malicious activity, including data exfiltration or anonymized command-and-control (C2) communications
+
+The hypothesis for this hunt was that **if TOR Browser was installed and used without authorization**, corresponding indicators would be observable across endpoint telemetry, process execution logs, and network connection data.
+
+---
+
+### Scope of Investigation
+
+The investigation focused on the following scope:
+
+- **Operating System:** Windows 10 / Windows 11  
+- **Telemetry Source:** Microsoft Defender for Endpoint (MDE)  
+- **Hunting Methodology:** Proactive threat hunting using KQL  
+- **Data Sources:**
+  - DeviceFileEvents
+  - DeviceProcessEvents
+  - DeviceNetworkEvents
+
+The hunt intentionally excluded assumptions of malware presence and instead evaluated TOR usage strictly through a **policy enforcement and risk assessment lens**, mirroring how a SOC would triage and escalate non-standard but high-risk user behavior.
