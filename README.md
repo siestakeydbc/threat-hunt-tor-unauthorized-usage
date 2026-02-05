@@ -40,3 +40,17 @@ The investigation focused on the following scope:
   - DeviceNetworkEvents
 
 The hunt intentionally excluded assumptions of malware presence and instead evaluated TOR usage strictly through a **policy enforcement and risk assessment lens**, mirroring how a SOC would triage and escalate non-standard but high-risk user behavior.
+## Investigation Findings
+
+The investigation identified multiple indicators consistent with unauthorized TOR Browser usage within the environment.
+
+### Summary of Observations
+
+- Endpoint telemetry confirmed TOR Browser installation activity inconsistent with approved software baselines.
+- Process execution logs showed TOR-related binaries (`tor.exe`, `firefox.exe`) launched outside standard application paths.
+- Network telemetry revealed outbound connections to ports commonly associated with TOR relay traffic.
+- File creation and access artifacts suggested user activity aligned with anonymized browsing behavior, including keywords commonly associated with TOR usage contexts.
+
+### Assessment
+
+While no direct malware payloads were observed, the combination of installation artifacts, process execution, network activity, and user file indicators supports the hypothesis of unauthorized anonymization tool usage. This behavior presents elevated risk due to the potential for data exfiltration, policy evasion, and unmonitored external communications.
