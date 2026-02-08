@@ -112,7 +112,7 @@ This activity presents elevated risk due to potential:
 
 ## MITRE ATT&CK Mapping
 
-The observed behaviors align with the following MITRE ATT&CK techniques. Mapping reflects **behavioral alignment and risk assessment**, not confirmed adversary attribution.
+MITRE ATT&CK techniques are used here for behavioral classification and risk alignment, not adversary attribution. Mapping reflects **behavioral alignment and risk assessment**, not confirmed adversary attribution.
 
 | Tactic | Technique ID | Technique Name | Relevance |
 |------|-------------|---------------|----------|
