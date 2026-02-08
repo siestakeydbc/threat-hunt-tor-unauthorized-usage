@@ -10,6 +10,17 @@ The project mirrors **real-world Security Operations Center (SOC) workflows**, e
 
 ---
 
+## Why This Matters
+
+Unauthorized anonymization tools inside corporate environments can:
+- Obscure user intent and activity
+- Bypass network visibility controls
+- Increase insider risk and data exfiltration exposure
+
+This project demonstrates how a SOC analyst can detect, validate, and assess such activity using endpoint telemetry and hypothesis-driven threat hunting.
+
+---
+
 ## Skills Demonstrated
 
 This investigation highlights practical, job-relevant skills aligned with SOC Analyst and Threat Hunting roles:
