@@ -97,6 +97,30 @@ Individually, each signal provided limited context. Correlated together, they fo
 
 The investigation identified multiple indicators consistent with unauthorized TOR Browser usage within the environment.
 
+### Evidence: TOR-Related Network Connections
+
+| Field | Value |
+|------|------|
+| Query | `03_tor_network_activity.kql` |
+| Detection Type | Network Telemetry |
+| Direction | Outbound |
+| Protocol | TCP |
+| Initiating Processes | `tor.exe`, `firefox.exe` |
+| TOR-Related Ports | `9001`, `9030`, `443` |
+| Action | Allowed |
+| Device | WIN-CLIENT-01 |
+| Remote IP (masked) | 185.220.101.xxx |
+| Timestamp (UTC) | 2026-02-02 14:21:09 |
+| Risk Classification | Policy Violation / Elevated Data Exfiltration Risk |
+
+![TOR network telemetry results](./images/tor_network_results.png)
+
+**Assessment:**  
+While encrypted traffic alone is not malicious, correlation with TOR-specific processes and relay ports increases confidence in unauthorized TOR usage within the enterprise environment.
+
+**Example KQL used to detect TOR-related network activity**
+![KQL - TOR network activity](./images/03_tor_network_activity_kql.png)
+
 ### Summary of Observations
 
 - TOR Browser installation activity outside approved deployment mechanisms
