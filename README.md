@@ -113,7 +113,8 @@ The investigation identified multiple indicators consistent with unauthorized TO
 | Timestamp (UTC) | 2026-02-02 14:21:09 |
 | Risk Classification | Policy Violation / Elevated Data Exfiltration Risk |
 
-[TOR network telemetry results](images/tor_network_results_table.png)
+[TOR network telemetry results](tor_network_results_table.png)
+
 
 **Assessment:**  
 While encrypted traffic alone is not malicious, correlation with TOR-specific processes and relay ports increases confidence in unauthorized TOR usage within the enterprise environment.
