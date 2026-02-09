@@ -120,7 +120,7 @@ The investigation identified multiple indicators consistent with unauthorized TO
 While encrypted traffic alone is not malicious, correlation with TOR-specific processes and relay ports increases confidence in unauthorized TOR usage within the enterprise environment.
 
 **Example KQL used to detect TOR-related network activity**
-![KQL - TOR network activity](./images/03_tor_network_activity_kql.png)
+[KQL - TOR network activity](./images/03_tor_network_activity_kql.png)
 
 ### Summary of Observations
 
