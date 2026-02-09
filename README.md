@@ -71,6 +71,8 @@ This investigation intentionally avoided assuming malware presence and instead e
 
 ### Analyst Validation & Noise Reduction (Conceptual)
 
+### Analyst Validation & Noise Reduction (Conceptual)
+
 ```mermaid
 flowchart LR
     A[Raw Endpoint Telemetry<br/>MDE Logs] --> B[Initial TOR Indicators<br/>Installer / Process / Network]
