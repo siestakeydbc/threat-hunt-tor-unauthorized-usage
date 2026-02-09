@@ -69,6 +69,16 @@ This investigation intentionally avoided assuming malware presence and instead e
 
 ## Detection Logic Overview
 
+### Analyst Validation & Noise Reduction (Conceptual)
+
+```mermaid
+flowchart LR
+    A[Raw Endpoint Telemetry<br/>MDE Logs] --> B[Initial TOR Indicators<br/>Installer / Process / Network]
+    B --> C[High-Noise Results<br/>Firefox + Generic Ports]
+    C --> D[Analyst Filtering<br/>Process = tor.exe<br/>Ports = 9001, 9030]
+    D --> E[High-Fidelity Signal<br/>Confirmed TOR Usage]
+    E --> F[Risk Assessment<br/>Policy Violation / Data Exfil Risk]
+
 The hunt was structured into focused detection stages, each represented by a dedicated KQL query:
 
 1. **Installer & Download Artifacts**  
