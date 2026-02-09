@@ -1,0 +1,6 @@
+Timestamp (UTC)        DeviceName        InitiatingProcessFileName   RemoteIP        RemotePort   Protocol   Action
+--------------------  ----------------  ---------------------------  --------------  ----------   --------   -------
+2026-02-02 14:21:09   WIN-CLIENT-01     tor.exe                      185.220.101.xxx  9001         TCP        Allowed
+2026-02-02 14:21:47   WIN-CLIENT-01     tor.exe                      51.68.172.xxx    443          TCP        Allowed
+2026-02-02 14:22:15   WIN-CLIENT-01     firefox.exe                 185.220.101.xxx  9001         TCP        Allowed
+2026-02-02 14:24:03   WIN-CLIENT-01     tor.exe                      199.249.230.xxx  9030         TCP        Allowed

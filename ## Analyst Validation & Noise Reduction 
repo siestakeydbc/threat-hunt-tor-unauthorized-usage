@@ -1,0 +1,9 @@
+## Analyst Validation & Noise Reduction (Conceptual)
+
+```mermaid
+flowchart LR
+    A[Raw Endpoint Telemetry<br/>MDE Logs] --> B[Initial TOR Indicators<br/>Installer / Process / Network]
+    B --> C[High-Noise Results<br/>Firefox + Generic Ports]
+    C --> D[Analyst Filtering<br/>Process = tor.exe<br/>Ports = 9001, 9030]
+    D --> E[High-Fidelity Signal<br/>Confirmed TOR Usage]
+    E --> F[Risk Assessment<br/>Policy Violation / Data Exfil Risk]
