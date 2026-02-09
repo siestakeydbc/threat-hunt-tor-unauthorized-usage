@@ -71,6 +71,8 @@ This investigation intentionally avoided assuming malware presence and instead e
 
 ### Analyst Validation & Noise Reduction (Conceptual)
 
+The following diagram illustrates how low-confidence TOR signals are progressively filtered and correlated to produce a high-fidelity SOC finding.
+
 <img width="1332" height="303" alt="Analyst_Validation_Noise_Reduction " src="https://github.com/user-attachments/assets/d9cf0892-a12d-4b7c-a0f0-cc73f98a15a3" />
 
 The hunt was structured into focused detection stages, each represented by a dedicated KQL query:
