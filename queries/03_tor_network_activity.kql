@@ -1,19 +1,17 @@
 // 03_tor_network_activity.kql
-// Purpose: Detect active TOR-related network connections from endpoints.
-// Data source: Microsoft Defender for Endpoint (MDE) Advanced Hunting
-// Table: DeviceNetworkEvents
+// Purpose: Identify outbound TOR-like network activity from endpoints using MDE Advanced Hunting.
+// Data Source: DeviceNetworkEvents
 // Notes:
-// - TOR Browser typically runs tor.exe and firefox.exe (from the Tor Browser folder).
-// - TOR uses a mix of ports; common ones include 9001 (relay), 9030 (dir), 9050/9150 (SOCKS).
-// - You will see a lot of normal Firefox traffic on corporate networks; the key is process context + ports + timing.
+// - Ports include common TOR relay/directory ports and HTTPS.
+// - Initiating process names are examples; adjust to your environment baselines.
 
 DeviceNetworkEvents
-| where Timestamp > ago(30d)
+| where Timestamp > ago(7d)
+| where ActionType in ("ConnectionSuccess", "ConnectionAttempt")
+| where Direction == "Outbound"
+| where Protocol == "Tcp"
 | where InitiatingProcessFileName in~ ("tor.exe", "firefox.exe")
-// Common TOR-related ports (not exhaustive). These are strong signals when paired with tor.exe / Tor Browser path.
-| where RemotePort in (9001, 9030, 9040, 9050, 9051, 9150)
-// Optional: reduce noise by focusing on outbound connections only (uncomment if desired)
-// | where Direction == "Outbound"
+| where RemotePort in (9001, 9030, 9050, 9150, 9151, 443)
 | project
     Timestamp,
     DeviceName,
@@ -23,5 +21,5 @@ DeviceNetworkEvents
     RemoteIP,
     RemotePort,
     RemoteUrl,
-    RemoteDomain
+    ActionType
 | order by Timestamp desc
